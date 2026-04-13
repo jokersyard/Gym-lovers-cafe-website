@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Lover's Cafe - Healthy Food Paradise</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-leaf" style="color: var(--secondary-color); margin-right: 8px; font-size: 28px;"></i>
+                    <span>Gym Lover's Cafe</span>
+                </div>
+                <nav class="nav-menu">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#menu" class="nav-link">Menu</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#benefits" class="nav-link">Benefits</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Fuel Your Fitness</h1>
+                <p class="hero-subtitle">Premium nutrition for athletes and fitness enthusiasts</p>
+                <button class="btn btn-primary" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">
+                    Explore Menu <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&h=500&fit=crop" alt="Healthy Food">
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="menu-section section-padding" id="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Signature Menu</h2>
+                <p>Handcrafted meals designed for peak performance</p>
+            </div>
+            
+            <div class="menu-filters">
+                <button class="filter-btn active" data-filter="all">All Items</button>
+                <button class="filter-btn" data-filter="protein">High Protein</button>
+                <button class="filter-btn" data-filter="vegan">Vegan</button>
+                <button class="filter-btn" data-filter="smoothie">Smoothies</button>
+            </div>
+
+            <div class="menu-grid">
+                <!-- Protein Bowl -->
+                <div class="menu-card" data-category="protein">
+                    <div class="menu-image">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Power Protein Bowl">
+                        <span class="badge protein-badge">High Protein</span>
+                    </div>
+                    <div class="menu-content">
+                        <h3>Power Protein Bowl</h3>
+                        <p>Grilled chicken, quinoa, roasted vegetables & tahini dressing</p>
+                        <div class="menu-footer">
+                            <span class="price">$12.99</span>
+                            <button class="btn-icon" onclick="addToCart('Power Protein Bowl')">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Green Power Smoothie -->
+                <div class="menu-card" data-category="smoothie vegan">
+                    <div class="menu-image">
+                        <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=400&h=300&fit=crop" alt="Green Power Smoothie">
+                        <span class="badge vegan-badge">Vegan</span>
+                    </div>
+                    <div class="menu-content">
+                        <h3>Green Power Smoothie</h3>
+                        <p>Spinach, banana, almond milk, chia seeds & plant protein</p>
+                        <div class="menu-footer">
+                            <span class="price">$8.99</span>
+                            <button class="btn-icon" onclick="addToCart('Green Power Smoothie')">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Muscle Building Pasta -->
+                <div class="menu-card" data-category="protein">
+                    <div class="menu-image">
+                        <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&h=300&fit=crop" alt="Muscle Builder Pasta">
+                        <span class="badge protein-badge">High Protein</span>
+                    </div>
+                    <div class="menu-content">
+                        <h3>Muscle Builder Pasta</h3>
+                        <p>Whole grain pasta, lean beef, spinach & nutritional yeast</p>
+                        <div class="menu-footer">
+                            <span class="price">$13.99</span>
+                            <button class="btn-icon" onclick="addToCart('Muscle Builder Pasta')">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Buddha Vegan Bowl -->
+                <div class="menu-card" data-category="vegan">
+                    <div class="menu-image">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Buddha Vegan Bowl">
+                        <span class="badge vegan-badge">Vegan</span>
+                    </div>
+                    <div class="menu-content">
+                        <h3>Buddha Vegan Bowl</h3>
+                        <p>Roasted chickpeas, sweet potato, kale & avocado</p>
+                        <div class="menu-footer">
+                            <span class="price">$11.99</span>
+                            <button class="btn-icon" onclick="addToCart('Buddha Vegan Bowl')">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post-Workout Smoothie -->
+                <div class="menu-card" data-category="smoothie">
+                    <div class="menu-image">
+                        <img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?w=400&h=300&fit=crop" alt="Post-Workout Smoothie">
+                        <span class="badge">Recovery</span>
+                    </div>
+                    <div class="menu-content">
+                        <h3>Post-Workout Recovery</h3>
+                        <p>Whey protein, berries, Greek yogurt & honey</p>
+                        <div class="menu-footer">
+                            <span class="price">$9.99</span>
+                            <button class="btn-icon" onclick="addToCart('Post-Workout Recovery')">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Energizer Fresh Juice -->
+                <div class="menu-card" data-category="smoothie vegan">
+                    <div class="menu-image">
+                        <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400&h=300&fit=crop" alt="Energizer Fresh Juice">
+                        <span class="badge vegan-badge">Vegan</span>
+                    </div>
+                    <div class="menu-content">
+                        <h3>Energizer Fresh Juice</h3>
+                        <p>Carrot, ginger, turmeric & orange blend</p>
+                        <div class="menu-footer">
+                            <span class="price">$7.99</span>
+                            <button class="btn-icon" onclick="addToCart('Energizer Fresh Juice')">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section section-padding" id="about">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&h=500&fit=crop" alt="Healthy Cafe">
+                </div>
+                <div class="about-content">
+                    <h2>About Gym Lover's Cafe</h2>
+                    <p>Founded by fitness enthusiasts for fitness enthusiasts, our cafe is dedicated to providing nutrient-dense meals that support your fitness goals. Every dish is crafted with premium ingredients and calculated macros.</p>
+                    <ul class="about-features">
+                        <li><i class="fas fa-check-circle"></i> Organic, locally-sourced ingredients</li>
+                        <li><i class="fas fa-check-circle"></i> Customizable macro tracking</li>
+                        <li><i class="fas fa-check-circle"></i> Daily fresh preparation</li>
+                        <li><i class="fas fa-check-circle"></i> Expert nutritional guidance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section section-padding" id="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Us</h2>
+                <p>Experience the difference quality nutrition makes</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Sustained Energy</h3>
+                    <p>Perfectly balanced meals keep you energized throughout your workout and day</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>Muscle Recovery</h3>
+                    <p>High-protein options support muscle repair and growth post-workout</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Heart Health</h3>
+                    <p>Clean eating supports cardiovascular health and overall wellness</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Mental Clarity</h3>
+                    <p>Proper nutrition fuels cognitive function and mental performance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Customers Say</h2>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The power bowls literally changed my training results. Best investment ever!"</p>
+                    <div class="testimonial-author">
+                        <strong>Alex Johnson</strong>
+                        <span>Fitness Coach</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Amazing vegan options! Tasty, nutritious, and the staff is incredibly knowledgeable."</p>
+                    <div class="testimonial-author">
+                        <strong>Sarah Williams</strong>
+                        <span>Vegan Athlete</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Finally found a cafe that understands athlete nutrition. The smoothies are incredible!"</p>
+                    <div class="testimonial-author">
+                        <strong>Mike Chen</strong>
+                        <span>CrossFit Champion</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section section-padding" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>Ready to fuel your fitness journey? Visit us today!</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>123 Fitness Street, Health City, HC 12345</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>(555) 123-4567</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@gymlovercafe.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Hours</h4>
+                                <p>Mon-Sun: 6AM - 9PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Gym Lover's Cafe</h4>
+                    <p>Fuel your passion. Build your strength. Transform your life.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Gym Lover's Cafe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Notification -->
+    <div class="cart-notification" id="cartNotif">
+        <i class="fas fa-check-circle"></i>
+        <span id="cartMessage">Added to cart!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
