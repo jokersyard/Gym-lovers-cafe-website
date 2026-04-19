@@ -3,6 +3,748 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Lover's Cafe - Fuel Your Fitness Journey</title>
+    <meta name="description" content="Premium nutrition for athletes and fitness enthusiasts. Healthy meals, smoothies, and supplements.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader">
+            <div class="spinner"></div>
+            <h3>Fueling Your Fitness...</h3>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-dumbbell"></i>
+                <span>Gym Lover's Cafe</span>
+            </div>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#menu" class="nav-link">Menu</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#testimonials" class="nav-link">Reviews</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="cart-btn" id="cartBtn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="hero-overlay"></div>
+            <div class="hero-particles" id="particles"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    Fuel Your <span class="gradient-text">Fitness</span> Journey
+                </h1>
+                <p class="hero-subtitle">
+                    Premium nutrition crafted for athletes and fitness enthusiasts.
+                    Experience the perfect blend of taste and performance.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Happy Customers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Menu Items</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Service</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-lg" onclick="scrollToSection('menu')">
+                        <i class="fas fa-utensils"></i> Explore Menu
+                    </button>
+                    <button class="btn btn-secondary btn-lg" onclick="scrollToSection('about')">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-container">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=600&fit=crop" alt="Healthy Meal" class="hero-main-img">
+                    <div class="floating-card card-1">
+                        <i class="fas fa-star"></i>
+                        <span>4.9 Rating</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="fas fa-leaf"></i>
+                        <span>100% Organic</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <i class="fas fa-clock"></i>
+                        <span>Fast Delivery</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our <span class="gradient-text">Signature</span> Menu</h2>
+                <p>Handcrafted meals designed for peak performance and recovery</p>
+            </div>
+
+            <div class="menu-filters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th-large"></i> All Items
+                </button>
+                <button class="filter-btn" data-filter="protein">
+                    <i class="fas fa-drumstick-bite"></i> High Protein
+                </button>
+                <button class="filter-btn" data-filter="vegan">
+                    <i class="fas fa-leaf"></i> Vegan
+                </button>
+                <button class="filter-btn" data-filter="smoothie">
+                    <i class="fas fa-glass-whiskey"></i> Smoothies
+                </button>
+                <button class="filter-btn" data-filter="supplements">
+                    <i class="fas fa-pills"></i> Supplements
+                </button>
+            </div>
+
+            <div class="menu-grid" id="menuGrid">
+                <!-- Power Protein Bowl -->
+                <div class="menu-card" data-category="protein">
+                    <div class="menu-card-inner">
+                        <div class="menu-image">
+                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Power Protein Bowl">
+                            <div class="menu-overlay">
+                                <button class="quick-view-btn" onclick="openModal('Power Protein Bowl')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="badge protein-badge">High Protein</div>
+                        </div>
+                        <div class="menu-content">
+                            <h3>Power Protein Bowl</h3>
+                            <p>Grilled chicken, quinoa, roasted vegetables & tahini dressing</p>
+                            <div class="menu-meta">
+                                <span class="calories">650 cal</span>
+                                <span class="protein">45g protein</span>
+                            </div>
+                            <div class="menu-footer">
+                                <span class="price">$12.99</span>
+                                <button class="btn btn-primary add-to-cart" onclick="addToCart('Power Protein Bowl', 12.99)">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Green Power Smoothie -->
+                <div class="menu-card" data-category="smoothie vegan">
+                    <div class="menu-card-inner">
+                        <div class="menu-image">
+                            <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=400&h=300&fit=crop" alt="Green Power Smoothie">
+                            <div class="menu-overlay">
+                                <button class="quick-view-btn" onclick="openModal('Green Power Smoothie')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="badge vegan-badge">Vegan</div>
+                        </div>
+                        <div class="menu-content">
+                            <h3>Green Power Smoothie</h3>
+                            <p>Spinach, banana, almond milk, chia seeds & plant protein</p>
+                            <div class="menu-meta">
+                                <span class="calories">280 cal</span>
+                                <span class="protein">20g protein</span>
+                            </div>
+                            <div class="menu-footer">
+                                <span class="price">$8.99</span>
+                                <button class="btn btn-primary add-to-cart" onclick="addToCart('Green Power Smoothie', 8.99)">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Muscle Builder Pasta -->
+                <div class="menu-card" data-category="protein">
+                    <div class="menu-card-inner">
+                        <div class="menu-image">
+                            <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&h=300&fit=crop" alt="Muscle Builder Pasta">
+                            <div class="menu-overlay">
+                                <button class="quick-view-btn" onclick="openModal('Muscle Builder Pasta')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="badge protein-badge">High Protein</div>
+                        </div>
+                        <div class="menu-content">
+                            <h3>Muscle Builder Pasta</h3>
+                            <p>Whole grain pasta, lean beef, spinach & nutritional yeast</p>
+                            <div class="menu-meta">
+                                <span class="calories">720 cal</span>
+                                <span class="protein">50g protein</span>
+                            </div>
+                            <div class="menu-footer">
+                                <span class="price">$13.99</span>
+                                <button class="btn btn-primary add-to-cart" onclick="addToCart('Muscle Builder Pasta', 13.99)">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Buddha Vegan Bowl -->
+                <div class="menu-card" data-category="vegan">
+                    <div class="menu-card-inner">
+                        <div class="menu-image">
+                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Buddha Vegan Bowl">
+                            <div class="menu-overlay">
+                                <button class="quick-view-btn" onclick="openModal('Buddha Vegan Bowl')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="badge vegan-badge">Vegan</div>
+                        </div>
+                        <div class="menu-content">
+                            <h3>Buddha Vegan Bowl</h3>
+                            <p>Roasted chickpeas, sweet potato, kale & avocado</p>
+                            <div class="menu-meta">
+                                <span class="calories">580 cal</span>
+                                <span class="protein">25g protein</span>
+                            </div>
+                            <div class="menu-footer">
+                                <span class="price">$11.99</span>
+                                <button class="btn btn-primary add-to-cart" onclick="addToCart('Buddha Vegan Bowl', 11.99)">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post-Workout Recovery -->
+                <div class="menu-card" data-category="smoothie">
+                    <div class="menu-card-inner">
+                        <div class="menu-image">
+                            <img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?w=400&h=300&fit=crop" alt="Post-Workout Smoothie">
+                            <div class="menu-overlay">
+                                <button class="quick-view-btn" onclick="openModal('Post-Workout Recovery')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="badge recovery-badge">Recovery</div>
+                        </div>
+                        <div class="menu-content">
+                            <h3>Post-Workout Recovery</h3>
+                            <p>Whey protein, berries, Greek yogurt & honey</p>
+                            <div class="menu-meta">
+                                <span class="calories">320 cal</span>
+                                <span class="protein">30g protein</span>
+                            </div>
+                            <div class="menu-footer">
+                                <span class="price">$9.99</span>
+                                <button class="btn btn-primary add-to-cart" onclick="addToCart('Post-Workout Recovery', 9.99)">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Protein Supplements -->
+                <div class="menu-card" data-category="supplements">
+                    <div class="menu-card-inner">
+                        <div class="menu-image">
+                            <img src="https://images.unsplash.com/photo-1550572017-edd951aa8ca9?w=400&h=300&fit=crop" alt="Whey Protein Powder">
+                            <div class="menu-overlay">
+                                <button class="quick-view-btn" onclick="openModal('Whey Protein Powder')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="badge supplement-badge">Supplement</div>
+                        </div>
+                        <div class="menu-content">
+                            <h3>Whey Protein Powder</h3>
+                            <p>Premium whey isolate, 25g protein per serving</p>
+                            <div class="menu-meta">
+                                <span class="calories">120 cal</span>
+                                <span class="protein">25g protein</span>
+                            </div>
+                            <div class="menu-footer">
+                                <span class="price">$49.99</span>
+                                <button class="btn btn-primary add-to-cart" onclick="addToCart('Whey Protein Powder', 49.99)">
+                                    <i class="fas fa-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-content">
+                    <h2>About <span class="gradient-text">Gym Lover's Cafe</span></h2>
+                    <p>
+                        Founded by fitness enthusiasts for fitness enthusiasts, our cafe is dedicated to providing
+                        nutrient-dense meals that support your fitness goals. Every dish is crafted with premium
+                        ingredients and calculated macros.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Organic Ingredients</h4>
+                                <p>Locally sourced, organic produce for maximum nutrition</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Macro Tracking</h4>
+                                <p>Precise nutritional information for every meal</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Fresh Daily</h4>
+                                <p>Prepared fresh every morning for peak quality</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Expert Guidance</h4>
+                                <p>Nutrition experts available for personalized advice</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-stack">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&h=500&fit=crop" alt="Healthy Cafe Interior" class="main-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop" alt="Fresh Ingredients" class="stacked-image img-1">
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=300&h=300&fit=crop" alt="Chef Preparing Food" class="stacked-image img-2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our <span class="gradient-text">Customers</span> Say</h2>
+                <p>Join thousands of satisfied fitness enthusiasts</p>
+            </div>
+
+            <div class="testimonials-slider">
+                <div class="testimonial-card active">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The power bowls literally changed my training results. Best investment ever! The quality and taste are unmatched."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" alt="Alex Johnson">
+                            <div class="author-info">
+                                <strong>Alex Johnson</strong>
+                                <span>Fitness Coach</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Amazing vegan options! Tasty, nutritious, and the staff is incredibly knowledgeable about fitness nutrition."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&h=60&fit=crop&crop=face" alt="Sarah Williams">
+                            <div class="author-info">
+                                <strong>Sarah Williams</strong>
+                                <span>Vegan Athlete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Finally found a cafe that understands athlete nutrition. The smoothies are incredible and help with recovery!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face" alt="Mike Chen">
+                            <div class="author-info">
+                                <strong>Mike Chen</strong>
+                                <span>CrossFit Champion</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-controls">
+                <button class="slider-btn prev-btn" id="prevBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="slider-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                </div>
+                <button class="slider-btn next-btn" id="nextBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Get In <span class="gradient-text">Touch</span></h2>
+                    <p>Ready to fuel your fitness journey? Visit us today or reach out for personalized nutrition advice!</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>123 Fitness Street<br>Health City, HC 12345</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>(555) 123-4567</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>info@gymlovercafe.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Hours</h4>
+                                <p>Mon-Sun: 6AM - 9PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="nutrition">Nutrition Consultation</option>
+                                <option value="catering">Catering Services</option>
+                                <option value="feedback">Feedback</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Gym Lover's Cafe</span>
+                    </div>
+                    <p>Fuel your passion. Build your strength. Transform your life with premium nutrition designed for athletes.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Meal Prep</a></li>
+                        <li><a href="#">Nutrition Consulting</a></li>
+                        <li><a href="#">Catering</a></li>
+                        <li><a href="#">Online Orders</a></li>
+                        <li><a href="#">Delivery</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for fitness tips and exclusive offers</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Your email" id="newsletterEmail">
+                        <button class="btn btn-primary" onclick="subscribeNewsletter()">
+                            <i class="fas fa-envelope"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Gym Lover's Cafe. All rights reserved. | Made with <i class="fas fa-heart text-red"></i> for fitness enthusiasts</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Menu Item Modal -->
+    <div class="modal" id="menuModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Menu Item</h3>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="Menu Item">
+                </div>
+                <div class="modal-details">
+                    <div class="modal-price" id="modalPrice">$0.00</div>
+                    <div class="modal-meta">
+                        <span id="modalCalories">0 cal</span>
+                        <span id="modalProtein">0g protein</span>
+                    </div>
+                    <p id="modalDescription">Description</p>
+                    <div class="modal-customization">
+                        <h4>Customization</h4>
+                        <div class="custom-options">
+                            <label class="custom-option">
+                                <input type="checkbox" name="extra-protein"> Extra Protein (+$2.00)
+                            </label>
+                            <label class="custom-option">
+                                <input type="checkbox" name="no-carb"> Low Carb (-$1.00)
+                            </label>
+                            <label class="custom-option">
+                                <input type="checkbox" name="extra-veggies"> Extra Veggies (+$1.50)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" onclick="updateQuantity(-1)">-</button>
+                        <span class="quantity" id="modalQuantity">1</span>
+                        <button class="qty-btn" onclick="updateQuantity(1)">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="addToCartFromModal()">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart - $<span id="modalTotal">0.00</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content cart-modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+                <button class="modal-close" onclick="closeCart()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="cart-items" id="cartItems">
+                    <!-- Cart items will be populated here -->
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h4>Your cart is empty</h4>
+                        <p>Add some delicious items to get started!</p>
+                    </div>
+                </div>
+                <div class="cart-summary" id="cartSummary" style="display: none;">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="cartSubtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax:</span>
+                        <span id="cartTax">$0.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="cartTotal">$0.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeCart()">Continue Shopping</button>
+                <button class="btn btn-primary" id="checkoutBtn" disabled>
+                    <i class="fas fa-credit-card"></i> Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="notificationText">Item added to cart!</span>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gym Lover's Cafe - Healthy Food Paradise</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
