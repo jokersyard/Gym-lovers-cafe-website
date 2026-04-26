@@ -30,4 +30,3 @@ npm start
 - Uses Next.js 14 and Tailwind CSS 3
 - Includes a modern order modal and hero section styles
 - Ideal for small cafe or meal delivery landing pages
-
