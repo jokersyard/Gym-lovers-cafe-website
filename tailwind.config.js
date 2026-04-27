@@ -28,6 +28,14 @@ module.exports = {
       animation: {
         'bounce-slow': 'bounce 2s infinite',
       },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+      },
+    },
+  },
+  plugins: [],
+}
     },
   },
   plugins: [],
