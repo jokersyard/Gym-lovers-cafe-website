@@ -8,6 +8,8 @@ A modern landing site for Gym Lover's Cafe, designed to showcase healthy meals, 
 - Clean product/order modal interactions
 - Fresh branding with green accent palette
 - Fast performance using Next.js and Tailwind CSS
+- Smooth animations with Framer Motion
+- Interactive sliders with Swiper
 
 ## Local Setup
 
@@ -24,6 +26,15 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 npm run build
 npm start
 ```
+
+## Technologies Used
+
+- **Next.js 14**: React framework for production
+- **Tailwind CSS**: Utility-first CSS framework
+- **Framer Motion**: Animation library
+- **Swiper**: Modern mobile touch slider
+- **React Hook Form**: Performant forms with easy validation
+- **Headless UI**: Completely unstyled, fully accessible UI components
 
 ## Notes
 
